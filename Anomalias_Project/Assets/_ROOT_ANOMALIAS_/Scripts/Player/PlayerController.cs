@@ -4,8 +4,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float walkSpeed = 5f;
+    public float acceleration = 8f;
+    public float deceleration = 10f;
+
     public float mouseSensitivity = 0.1f;
+
+    public float bobSpeed = 14f;
+    public float bobAmount = 0.05f;
 
     public Transform cameraHolder;
 
@@ -18,13 +24,21 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 lookInput;
 
+    private Vector3 currentVelocity;
+
     private float xRotation;
 
     private bool isGrounded;
 
+    private Vector3 cameraStartPos;
+
+    private float bobTimer;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        cameraStartPos = cameraHolder.localPosition;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -35,6 +49,7 @@ public class PlayerController : MonoBehaviour
         GroundCheck();
         Move();
         Look();
+        HeadBob();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -54,9 +69,15 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        Vector3 targetMove = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
 
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        Vector3 targetVelocity = targetMove * walkSpeed;
+
+        float smooth = targetMove.magnitude > 0 ? acceleration : deceleration;
+
+        currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, smooth * Time.deltaTime);
+
+        controller.Move(currentVelocity * Time.deltaTime);
     }
 
     void Look()
@@ -70,5 +91,29 @@ public class PlayerController : MonoBehaviour
         cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    void HeadBob()
+    {
+        if (moveInput.magnitude > 0.1f && isGrounded)
+        {
+            bobTimer += Time.deltaTime * bobSpeed;
+
+            Vector3 newPosition = cameraStartPos;
+
+            newPosition.y += Mathf.Sin(bobTimer) * bobAmount;
+
+            cameraHolder.localPosition = newPosition;
+        }
+        else
+        {
+            bobTimer = 0;
+
+            cameraHolder.localPosition = Vector3.Lerp(
+                cameraHolder.localPosition,
+                cameraStartPos,
+                8f * Time.deltaTime
+            );
+        }
     }
 }
