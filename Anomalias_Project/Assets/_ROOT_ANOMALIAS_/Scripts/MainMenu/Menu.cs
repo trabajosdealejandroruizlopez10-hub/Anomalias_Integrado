@@ -17,4 +17,21 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Eres gay");
     }
-}
+
+    public GameObject settingsPanel;
+
+        public void OpenSettings()
+        {
+            settingsPanel.SetActive(true);
+        }
+
+        public void CloseSettings()
+        {
+            settingsPanel.SetActive(false);
+        }
+
+        public void QuitGame()
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
