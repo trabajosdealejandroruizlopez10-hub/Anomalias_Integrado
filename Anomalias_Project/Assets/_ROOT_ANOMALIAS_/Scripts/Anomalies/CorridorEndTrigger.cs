@@ -1,47 +1,24 @@
 using UnityEngine;
 
-public class CorridorEndTrigger : MonoBehaviour
+public class CorridorTrigger : MonoBehaviour
 {
-    public bool isForwardTrigger;
+    public bool isForward;
 
-    private bool triggered;
+    private bool used;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (triggered)
+        if (used)
             return;
 
         if (!other.CompareTag("Player"))
             return;
 
-        triggered = true;
+        used = true;
 
-        AnomalyManager anomalyManager = FindObjectOfType<AnomalyManager>();
-        LoopManager loopManager = FindObjectOfType<LoopManager>();
+        LoopManager loopManager =
+            FindObjectOfType<LoopManager>();
 
-        bool hasAnomaly = anomalyManager.hasAnomaly;
-
-        if (isForwardTrigger)
-        {
-            if (hasAnomaly)
-            {
-                loopManager.PlayerChoseWrongDoor();
-            }
-            else
-            {
-                loopManager.PlayerChoseCorrectDoor();
-            }
-        }
-        else
-        {
-            if (hasAnomaly)
-            {
-                loopManager.PlayerChoseCorrectDoor();
-            }
-            else
-            {
-                loopManager.PlayerChoseWrongDoor();
-            }
-        }
+        loopManager.NextLoop(isForward);
     }
 }

@@ -5,19 +5,20 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
-    public float acceleration = 8f;
-    public float deceleration = 10f;
+
+    public float acceleration = 10f;
+    public float deceleration = 12f;
 
     public float mouseSensitivity = 0.1f;
-
-    public float bobSpeed = 14f;
-    public float bobAmount = 0.05f;
 
     public Transform cameraHolder;
 
     public Transform groundCheck;
-    public float groundDistance = 0.3f;
+    public float groundDistance = 0.25f;
     public LayerMask groundMask;
+
+    public float bobSpeed = 14f;
+    public float bobAmount = 0.05f;
 
     private CharacterController controller;
 
@@ -47,8 +48,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GroundCheck();
+
         Move();
+
         Look();
+
         HeadBob();
     }
 
@@ -64,18 +68,33 @@ public class PlayerController : MonoBehaviour
 
     void GroundCheck()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(
+            groundCheck.position,
+            groundDistance,
+            groundMask
+        );
     }
 
     void Move()
     {
-        Vector3 targetMove = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
+        Vector3 moveDirection =
+            transform.right * moveInput.x +
+            transform.forward * moveInput.y;
 
-        Vector3 targetVelocity = targetMove * walkSpeed;
+        moveDirection.Normalize();
 
-        float smooth = targetMove.magnitude > 0 ? acceleration : deceleration;
+        Vector3 targetVelocity = moveDirection * walkSpeed;
 
-        currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, smooth * Time.deltaTime);
+        float smoothAmount =
+            moveDirection.magnitude > 0
+            ? acceleration
+            : deceleration;
+
+        currentVelocity = Vector3.Lerp(
+            currentVelocity,
+            targetVelocity,
+            smoothAmount * Time.deltaTime
+        );
 
         controller.Move(currentVelocity * Time.deltaTime);
     }
@@ -86,9 +105,11 @@ public class PlayerController : MonoBehaviour
         float mouseY = lookInput.y * mouseSensitivity;
 
         xRotation -= mouseY;
+
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        cameraHolder.localRotation =
+            Quaternion.Euler(xRotation, 0f, 0f);
 
         transform.Rotate(Vector3.up * mouseX);
     }
@@ -99,15 +120,15 @@ public class PlayerController : MonoBehaviour
         {
             bobTimer += Time.deltaTime * bobSpeed;
 
-            Vector3 newPosition = cameraStartPos;
+            Vector3 targetPosition = cameraStartPos;
 
-            newPosition.y += Mathf.Sin(bobTimer) * bobAmount;
+            targetPosition.y += Mathf.Sin(bobTimer) * bobAmount;
 
-            cameraHolder.localPosition = newPosition;
+            cameraHolder.localPosition = targetPosition;
         }
         else
         {
-            bobTimer = 0;
+            bobTimer = 0f;
 
             cameraHolder.localPosition = Vector3.Lerp(
                 cameraHolder.localPosition,

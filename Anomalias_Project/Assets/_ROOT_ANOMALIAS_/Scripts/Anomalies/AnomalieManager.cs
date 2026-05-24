@@ -6,11 +6,6 @@ public class AnomalyManager : MonoBehaviour
 
     public bool hasAnomaly;
 
-    void Start()
-    {
-        GenerateAnomaly();
-    }
-
     public void GenerateAnomaly()
     {
         DisableAll();
@@ -20,7 +15,8 @@ public class AnomalyManager : MonoBehaviour
         if (!hasAnomaly)
             return;
 
-        int randomIndex = Random.Range(0, anomalies.Length);
+        int randomIndex =
+            Random.Range(0, anomalies.Length);
 
         anomalies[randomIndex].SetActive(true);
     }

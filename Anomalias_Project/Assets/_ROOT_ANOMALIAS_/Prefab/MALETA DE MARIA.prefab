@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MALETA DE MARIA
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4eeb8bde88167347a5a5b38981a9f28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1129496810705857465, guid: a4eeb8bde88167347a5a5b38981a9f28, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
