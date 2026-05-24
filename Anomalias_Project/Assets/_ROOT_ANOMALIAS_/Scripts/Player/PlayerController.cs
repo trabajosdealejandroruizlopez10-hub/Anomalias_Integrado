@@ -1,26 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    public float walkSpeed = 5f;
+    public float moveSpeed = 6f;
 
-    public float acceleration = 10f;
-    public float deceleration = 12f;
+    public float acceleration = 12f;
+    public float deceleration = 14f;
 
     public float mouseSensitivity = 0.1f;
+
+    public float maxSlopeAngle = 45f;
 
     public Transform cameraHolder;
 
     public Transform groundCheck;
-    public float groundDistance = 0.25f;
+    public float groundDistance = 0.3f;
     public LayerMask groundMask;
 
-    public float bobSpeed = 14f;
-    public float bobAmount = 0.05f;
+    public float headBobSpeed = 14f;
+    public float headBobAmount = 0.05f;
 
-    private CharacterController controller;
+    private Rigidbody rb;
 
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -37,7 +39,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
+
+        rb.freezeRotation = true;
 
         cameraStartPos = cameraHolder.localPosition;
 
@@ -49,11 +53,14 @@ public class PlayerController : MonoBehaviour
     {
         GroundCheck();
 
-        Move();
-
         Look();
 
         HeadBob();
+    }
+
+    void FixedUpdate()
+    {
+        Move();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -83,58 +90,104 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.Normalize();
 
-        Vector3 targetVelocity = moveDirection * walkSpeed;
+        Vector3 targetVelocity =
+            moveDirection * moveSpeed;
 
-        float smoothAmount =
+        Vector3 velocity =
+            rb.linearVelocity;
+
+        Vector3 horizontalVelocity =
+            new Vector3(
+                velocity.x,
+                0f,
+                velocity.z
+            );
+
+        float smooth =
             moveDirection.magnitude > 0
             ? acceleration
             : deceleration;
 
-        currentVelocity = Vector3.Lerp(
-            currentVelocity,
-            targetVelocity,
-            smoothAmount * Time.deltaTime
-        );
+        horizontalVelocity =
+            Vector3.Lerp(
+                horizontalVelocity,
+                targetVelocity,
+                smooth * Time.fixedDeltaTime
+            );
 
-        controller.Move(currentVelocity * Time.deltaTime);
+        rb.linearVelocity =
+            new Vector3(
+                horizontalVelocity.x,
+                rb.linearVelocity.y,
+                horizontalVelocity.z
+            );
     }
 
     void Look()
     {
-        float mouseX = lookInput.x * mouseSensitivity;
-        float mouseY = lookInput.y * mouseSensitivity;
+        float mouseX =
+            lookInput.x * mouseSensitivity;
+
+        float mouseY =
+            lookInput.y * mouseSensitivity;
 
         xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(
+            xRotation,
+            -90f,
+            90f
+        );
 
         cameraHolder.localRotation =
-            Quaternion.Euler(xRotation, 0f, 0f);
+            Quaternion.Euler(
+                xRotation,
+                0f,
+                0f
+            );
 
-        transform.Rotate(Vector3.up * mouseX);
+        transform.Rotate(
+            Vector3.up * mouseX
+        );
     }
 
     void HeadBob()
     {
-        if (moveInput.magnitude > 0.1f && isGrounded)
+        Vector3 horizontalVelocity =
+            new Vector3(
+                rb.linearVelocity.x,
+                0f,
+                rb.linearVelocity.z
+            );
+
+        if (
+            horizontalVelocity.magnitude > 0.1f &&
+            isGrounded
+        )
         {
-            bobTimer += Time.deltaTime * bobSpeed;
+            bobTimer +=
+                Time.deltaTime * headBobSpeed;
 
-            Vector3 targetPosition = cameraStartPos;
+            Vector3 targetPos =
+                cameraStartPos;
 
-            targetPosition.y += Mathf.Sin(bobTimer) * bobAmount;
+            targetPos.y +=
+                Mathf.Sin(bobTimer) *
+                headBobAmount;
 
-            cameraHolder.localPosition = targetPosition;
+            cameraHolder.localPosition =
+                targetPos;
         }
         else
         {
             bobTimer = 0f;
 
-            cameraHolder.localPosition = Vector3.Lerp(
-                cameraHolder.localPosition,
-                cameraStartPos,
-                8f * Time.deltaTime
-            );
+            cameraHolder.localPosition =
+                Vector3.Lerp(
+                    cameraHolder.localPosition,
+                    cameraStartPos,
+                    8f * Time.deltaTime
+                );
         }
     }
 }
