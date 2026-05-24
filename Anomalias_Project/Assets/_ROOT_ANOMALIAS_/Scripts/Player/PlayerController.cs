@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour
 
     public float mouseSensitivity = 0.1f;
 
-    public float maxSlopeAngle = 45f;
-
     public Transform cameraHolder;
 
     public Transform groundCheck;
@@ -26,8 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
     private Vector2 lookInput;
-
-    private Vector3 currentVelocity;
 
     private float xRotation;
 
@@ -43,9 +39,12 @@ public class PlayerController : MonoBehaviour
 
         rb.freezeRotation = true;
 
-        cameraStartPos = cameraHolder.localPosition;
+        cameraStartPos =
+            cameraHolder.localPosition;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState =
+            CursorLockMode.Locked;
+
         Cursor.visible = false;
     }
 
@@ -63,23 +62,30 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(
+        InputAction.CallbackContext context
+    )
     {
-        moveInput = context.ReadValue<Vector2>();
+        moveInput =
+            context.ReadValue<Vector2>();
     }
 
-    public void OnLook(InputAction.CallbackContext context)
+    public void OnLook(
+        InputAction.CallbackContext context
+    )
     {
-        lookInput = context.ReadValue<Vector2>();
+        lookInput =
+            context.ReadValue<Vector2>();
     }
 
     void GroundCheck()
     {
-        isGrounded = Physics.CheckSphere(
-            groundCheck.position,
-            groundDistance,
-            groundMask
-        );
+        isGrounded =
+            Physics.CheckSphere(
+                groundCheck.position,
+                groundDistance,
+                groundMask
+            );
     }
 
     void Move()
@@ -166,7 +172,8 @@ public class PlayerController : MonoBehaviour
         )
         {
             bobTimer +=
-                Time.deltaTime * headBobSpeed;
+                Time.deltaTime *
+                headBobSpeed;
 
             Vector3 targetPos =
                 cameraStartPos;
@@ -189,5 +196,20 @@ public class PlayerController : MonoBehaviour
                     8f * Time.deltaTime
                 );
         }
+    }
+
+    public void Teleport(
+        Vector3 position,
+        Quaternion rotation
+    )
+    {
+        rb.linearVelocity =
+            Vector3.zero;
+
+        transform.position =
+            position;
+
+        transform.rotation =
+            rotation;
     }
 }
