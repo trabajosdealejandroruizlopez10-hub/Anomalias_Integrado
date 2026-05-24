@@ -5,75 +5,118 @@ public class PortalTraveller : MonoBehaviour
 {
     public Transform destination;
 
+    private Transform player;
+
+    private bool playerOverlapping;
+
     private bool canTeleport = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!canTeleport)
-            return;
-
         if (!other.CompareTag("Player"))
             return;
 
-        Rigidbody rb =
-            other.GetComponent<Rigidbody>();
+        player = other.transform;
 
-        if (rb == null)
+        playerOverlapping = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player"))
             return;
 
+        playerOverlapping = false;
+    }
+
+    void Update()
+    {
+        if (!playerOverlapping)
+            return;
+
+        if (!canTeleport)
+            return;
+
+        Vector3 portalToPlayer =
+            player.position -
+            transform.position;
+
+        float dot =
+            Vector3.Dot(
+                transform.forward,
+                portalToPlayer
+            );
+
+        if (dot < 0f)
+        {
+            Teleport();
+        }
+    }
+
+    void Teleport()
+    {
         StartCoroutine(
             TeleportCooldown()
         );
 
-        Transform player =
-            other.transform;
+        Rigidbody rb =
+            player.GetComponent<Rigidbody>();
 
-        Vector3 localPosition =
+        Vector3 relativePosition =
             transform.InverseTransformPoint(
                 player.position
             );
 
-        localPosition =
+        relativePosition =
             Quaternion.Euler(
                 0f,
                 180f,
                 0f
-            ) * localPosition;
+            ) * relativePosition;
 
         player.position =
             destination.TransformPoint(
-                localPosition
+                relativePosition
             );
 
-        Quaternion difference =
-            destination.rotation *
+        Quaternion relativeRotation =
             Quaternion.Inverse(
                 transform.rotation
-            );
-
-        player.rotation =
-            difference *
+            ) *
             player.rotation;
 
-        Vector3 velocity =
+        relativeRotation =
+            Quaternion.Euler(
+                0f,
+                180f,
+                0f
+            ) * relativeRotation;
+
+        player.rotation =
+            destination.rotation *
+            relativeRotation;
+
+        Vector3 relativeVelocity =
             transform.InverseTransformDirection(
                 rb.linearVelocity
             );
 
-        velocity =
+        relativeVelocity =
             Quaternion.Euler(
                 0f,
                 180f,
                 0f
-            ) * velocity;
+            ) * relativeVelocity;
 
         rb.linearVelocity =
             destination.TransformDirection(
-                velocity
+                relativeVelocity
             );
 
         player.position +=
-            destination.forward * 1f;
+            destination.forward * 0.5f;
+
+        playerOverlapping = false;
     }
 
     IEnumerator TeleportCooldown()
