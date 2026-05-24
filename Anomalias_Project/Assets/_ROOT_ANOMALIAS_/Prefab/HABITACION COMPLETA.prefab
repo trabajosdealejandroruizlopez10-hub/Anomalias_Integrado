@@ -12460,6 +12460,7 @@ Transform:
   - {fileID: 897895151638473984}
   - {fileID: 1391123734674806640}
   - {fileID: 229089178428694879}
+  - {fileID: 9130274370225295063}
   - {fileID: 1456487111746047645}
   - {fileID: 2198036086007303027}
   - {fileID: 5569989877792187113}
@@ -14030,6 +14031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -14858,6 +14863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -14883,6 +14892,10 @@ PrefabInstance:
     - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_Name
       value: MALETA DE MARIA (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
@@ -15169,6 +15182,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -16918,6 +16935,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -17094,6 +17115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -17171,6 +17196,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17421,6 +17450,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17980,6 +18013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -18013,6 +18050,10 @@ PrefabInstance:
     - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_Name
       value: MALETA DE MARIA (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
@@ -18390,6 +18431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -18501,6 +18546,10 @@ PrefabInstance:
     - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_Name
       value: MALETA DE MARIA (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
@@ -18713,6 +18762,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -19080,6 +19133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MALETA DE MARIA (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9662722
@@ -19342,6 +19399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MALETA DE MARIA (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2441068
@@ -19557,13 +19618,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7286139714937988626, guid: d0405aca64a6e7042a7e2818327652a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 208495521004731751}
   m_SourcePrefab: {fileID: 100100000, guid: d0405aca64a6e7042a7e2818327652a4, type: 3}
 --- !u!4 &6048923758946254664 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7950614601258695848, guid: d0405aca64a6e7042a7e2818327652a4, type: 3}
   m_PrefabInstance: {fileID: 4441773844724155360}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6393361807219172850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7286139714937988626, guid: d0405aca64a6e7042a7e2818327652a4, type: 3}
+  m_PrefabInstance: {fileID: 4441773844724155360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &208495521004731751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393361807219172850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0013170876, y: 0.014275276, z: 0.020000005}
+  m_Center: {x: 0, y: 0.000000059604645, z: 0.0000000037252903}
 --- !u!1001 &4467625074701134175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20818,6 +20908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -20851,6 +20945,10 @@ PrefabInstance:
     - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_Name
       value: MALETA DE MARIA (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
@@ -21200,6 +21298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -21363,6 +21465,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -21602,6 +21708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -21721,6 +21831,10 @@ PrefabInstance:
     - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_Name
       value: MALETA DE MARIA (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
@@ -22070,6 +22184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -22337,6 +22455,10 @@ PrefabInstance:
     - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_Name
       value: MALETA DE MARIA (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
@@ -22800,6 +22922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -22877,6 +23003,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -23206,6 +23336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -23380,6 +23514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MALETA DE MARIA
       objectReference: {fileID: 0}
+    - target: {fileID: 3871621838786992323, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4535427328691094137, guid: 764dbc5f17d897649b09c3035fa3123a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5243604
@@ -23505,6 +23643,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -24204,6 +24346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampara Pasillos (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -24748,6 +24894,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
   m_PrefabInstance: {fileID: 8692614945974564978}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8736975954810546492
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9202033477457641308}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 807.67725
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 736.0151
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 736.0151
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.91113
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.020005422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.300442
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7072302
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7069834
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: m_Name
+      value: Pared modulo (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3646174089899847560, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ae6931316932d3e48aaee60b3c11a990, type: 2}
+    - target: {fileID: 4934097219656857936, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 58b204977e16251439ad2c0f48329168, type: 2}
+    - target: {fileID: 6278173592176498628, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 098e0e8f461f60d45953b945917707b7, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+--- !u!4 &9130274370225295063 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5cac746be7ba9854eb1a24eadfaa19e9, type: 3}
+  m_PrefabInstance: {fileID: 8736975954810546492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8790758717431061115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24959,6 +25191,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -25197,6 +25433,10 @@ PrefabInstance:
     - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: m_Name
       value: Lampara Pasillos (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 887661671674933401, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2005458562438800180, guid: d0d9760b207d6e544aec61a7756d99b4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
