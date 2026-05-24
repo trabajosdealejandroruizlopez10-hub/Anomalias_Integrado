@@ -30,9 +30,9 @@ Shader "Unlit/PortalScreen"
 
             struct v2f
             {
-                float4 vertex : SV_POSITION;
+                float4 posPantalla : TEXCOORD0;
 
-                float4 screenPos : TEXCOORD0;
+                float4 vertex : SV_POSITION;
             };
 
             sampler2D _MainTex;
@@ -46,7 +46,7 @@ Shader "Unlit/PortalScreen"
                         v.vertex
                     );
 
-                o.screenPos =
+                o.posPantalla =
                     ComputeScreenPos(
                         o.vertex
                     );
@@ -57,8 +57,8 @@ Shader "Unlit/PortalScreen"
             fixed4 frag(v2f i) : SV_Target
             {
                 float2 uv =
-                    i.screenPos.xy /
-                    i.screenPos.w;
+                    i.posPantalla.xy /
+                    i.posPantalla.w;
 
                 fixed4 col =
                     tex2D(

@@ -550,14 +550,14 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -572,7 +572,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -599,7 +599,7 @@ Transform:
   m_GameObject: {fileID: 900882114}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 34.85, y: 0.3, z: -15.79}
+  m_LocalPosition: {x: 34.85, y: 1.413, z: -15.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1366,14 +1366,14 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1388,7 +1388,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1415,7 +1415,7 @@ Transform:
   m_GameObject: {fileID: 1607766632}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.5897286, z: -0, w: 0.8076016}
-  m_LocalPosition: {x: -15.59, y: 0.34000003, z: 35.96}
+  m_LocalPosition: {x: -15.51, y: 1.413, z: 35.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1460,10 +1460,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45700598
-  m_Height: 2.0307474
+  m_Radius: 0.89722604
+  m_Height: 4.6422544
   m_Direction: 1
-  m_Center: {x: -2.7810141e-15, y: 1.0180666, z: 0.04299392}
+  m_Center: {x: 0.44022027, y: 0.74252737, z: 0.04299392}
 --- !u!1 &1702211544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,6 +2533,18 @@ PrefabInstance:
     - target: {fileID: 6418379237326739983, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455900290192558087, guid: 69247d02029dd1e49b28c19874296837, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455900290192558087, guid: 69247d02029dd1e49b28c19874296837, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455900290192558087, guid: 69247d02029dd1e49b28c19874296837, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 8329115082252652630, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: moveSpeed

@@ -53,5 +53,8 @@ public class PortalCamera : MonoBehaviour
 
         cam.fieldOfView =
             Camera.main.fieldOfView;
+
+        cam.aspect =
+            Camera.main.aspect;
     }
 }
