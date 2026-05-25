@@ -74,11 +74,6 @@ public class PortalTraveller : MonoBehaviour
                 0f
             ) * relativePosition;
 
-        player.position =
-            destination.TransformPoint(
-                relativePosition
-            );
-
         Quaternion relativeRotation =
             Quaternion.Inverse(
                 transform.rotation
@@ -92,7 +87,12 @@ public class PortalTraveller : MonoBehaviour
                 0f
             ) * relativeRotation;
 
-        player.rotation =
+        Vector3 newPosition =
+            destination.TransformPoint(
+                relativePosition
+            );
+
+        Quaternion newRotation =
             destination.rotation *
             relativeRotation *
             Quaternion.Euler(
@@ -100,6 +100,14 @@ public class PortalTraveller : MonoBehaviour
                 180f,
                 0f
             );
+
+        PlayerController controller =
+            player.GetComponent<PlayerController>();
+
+        controller.Teleport(
+            newPosition,
+            newRotation
+        );
 
         Vector3 relativeVelocity =
             transform.InverseTransformDirection(

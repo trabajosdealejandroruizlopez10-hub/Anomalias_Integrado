@@ -50,13 +50,17 @@ public class PlayerController : MonoBehaviour
         rb.collisionDetectionMode =
             CollisionDetectionMode.Continuous;
 
+        rb.constraints =
+            RigidbodyConstraints.FreezeRotationX |
+            RigidbodyConstraints.FreezeRotationZ;
+
         cameraStartPos =
             cameraHolder.localPosition;
 
         Cursor.lockState =
             CursorLockMode.Locked;
 
-        Cursor.visible = true;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -142,16 +146,40 @@ public class PlayerController : MonoBehaviour
 
     void Look()
     {
-        float mouseX = lookInput.x * mouseSensitivity;
-        float mouseY = lookInput.y * mouseSensitivity;
+        float mouseX =
+            lookInput.x *
+            mouseSensitivity;
+
+        float mouseY =
+            lookInput.y *
+            mouseSensitivity;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        xRotation =
+            Mathf.Clamp(
+                xRotation,
+                -90f,
+                90f
+            );
 
-        float yRotation = transform.eulerAngles.y + mouseX;
-        rb.MoveRotation(Quaternion.Euler(0f, yRotation, 0f));
+        cameraHolder.localRotation =
+            Quaternion.Euler(
+                xRotation,
+                0f,
+                0f
+            );
+
+        float yRotation =
+            transform.eulerAngles.y +
+            mouseX;
+
+        transform.rotation =
+            Quaternion.Euler(
+                0f,
+                yRotation,
+                0f
+            );
     }
 
     void HeadBob()
@@ -176,8 +204,9 @@ public class PlayerController : MonoBehaviour
                 cameraStartPos;
 
             targetPos.y +=
-                Mathf.Sin(bobTimer) *
-                headBobAmount;
+                Mathf.Sin(
+                    bobTimer
+                ) * headBobAmount;
 
             cameraHolder.localPosition =
                 targetPos;

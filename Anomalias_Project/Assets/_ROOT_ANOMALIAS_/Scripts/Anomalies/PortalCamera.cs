@@ -10,29 +10,64 @@ public class PortalCamera : MonoBehaviour
 
     private Camera cam;
 
+    private Camera mainCam;
+
     void Start()
     {
         cam = GetComponent<Camera>();
+
+        mainCam = Camera.main;
     }
 
     void LateUpdate()
     {
-        Matrix4x4 m =
-            portal.localToWorldMatrix *
-            otherPortal.worldToLocalMatrix *
-            playerCamera.localToWorldMatrix;
+        Vector3 relativePosition =
+            otherPortal.InverseTransformPoint(
+                playerCamera.position
+            );
 
-        transform.SetPositionAndRotation(
-            m.GetColumn(3),
-            m.rotation
-        );
+        relativePosition =
+            Quaternion.Euler(
+                0f,
+                180f,
+                0f
+            ) * relativePosition;
 
-        transform.Rotate(
-            Vector3.up,
-            180f
-        );
+        transform.position =
+            portal.TransformPoint(
+                relativePosition
+            );
+
+        Quaternion relativeRotation =
+            Quaternion.Inverse(
+                otherPortal.rotation
+            ) *
+            playerCamera.rotation;
+
+        Vector3 euler =
+            relativeRotation.eulerAngles;
+
+        transform.rotation =
+            portal.rotation *
+            Quaternion.Euler(
+                euler.x,
+                euler.y + 180f,
+                0f
+            );
 
         cam.projectionMatrix =
-            Camera.main.projectionMatrix;
+            mainCam.projectionMatrix;
+
+        cam.fieldOfView =
+            mainCam.fieldOfView;
+
+        cam.aspect =
+            mainCam.aspect;
+
+        cam.nearClipPlane =
+            mainCam.nearClipPlane;
+
+        cam.farClipPlane =
+            mainCam.farClipPlane;
     }
 }
