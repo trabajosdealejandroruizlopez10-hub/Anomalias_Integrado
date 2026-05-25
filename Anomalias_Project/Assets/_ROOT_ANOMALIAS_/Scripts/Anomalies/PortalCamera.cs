@@ -21,41 +21,36 @@ public class PortalCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 relativePosition =
-            otherPortal.InverseTransformPoint(
-                playerCamera.position
-            );
-
-        relativePosition =
-            Quaternion.Euler(
-                0f,
-                180f,
-                0f
-            ) * relativePosition;
-
-        transform.position =
-            portal.TransformPoint(
-                relativePosition
-            );
-
-        Quaternion relativeRotation =
-            Quaternion.Inverse(
-                otherPortal.rotation
+        Matrix4x4 m =
+            portal.localToWorldMatrix *
+            Matrix4x4.Rotate(
+                Quaternion.Euler(
+                    0f,
+                    180f,
+                    0f
+                )
             ) *
-            playerCamera.rotation;
+            otherPortal.worldToLocalMatrix *
+            playerCamera.localToWorldMatrix;
 
-        relativeRotation =
-            Quaternion.Euler(
-                0f,
-                180f,
-                0f
-            ) * relativeRotation;
-
-        transform.rotation =
-            portal.rotation *
-            relativeRotation;
+        transform.SetPositionAndRotation(
+            m.GetColumn(3),
+            m.rotation
+        );
 
         cam.projectionMatrix =
             mainCam.projectionMatrix;
+
+        cam.fieldOfView =
+            mainCam.fieldOfView;
+
+        cam.aspect =
+            mainCam.aspect;
+
+        cam.nearClipPlane =
+            mainCam.nearClipPlane;
+
+        cam.farClipPlane =
+            mainCam.farClipPlane;
     }
 }
