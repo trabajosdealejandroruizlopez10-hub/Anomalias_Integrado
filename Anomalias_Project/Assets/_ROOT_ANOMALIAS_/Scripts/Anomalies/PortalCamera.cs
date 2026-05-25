@@ -44,30 +44,18 @@ public class PortalCamera : MonoBehaviour
             ) *
             playerCamera.rotation;
 
-        Vector3 euler =
-            relativeRotation.eulerAngles;
+        relativeRotation =
+            Quaternion.Euler(
+                0f,
+                180f,
+                0f
+            ) * relativeRotation;
 
         transform.rotation =
             portal.rotation *
-            Quaternion.Euler(
-                euler.x,
-                euler.y + 180f,
-                0f
-            );
+            relativeRotation;
 
         cam.projectionMatrix =
             mainCam.projectionMatrix;
-
-        cam.fieldOfView =
-            mainCam.fieldOfView;
-
-        cam.aspect =
-            mainCam.aspect;
-
-        cam.nearClipPlane =
-            mainCam.nearClipPlane;
-
-        cam.farClipPlane =
-            mainCam.farClipPlane;
     }
 }
