@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/_ROOT_ANOMALIAS_/Scenes/SCN_MainMenu.unity
     guid: d5351f652929bf54388fb86306fb08c8
   - enabled: 1
-    path: Assets/_ROOT_ANOMALIAS_/Scenes/SCN_Maria.unity
-    guid: 793e9fba4abd82747a2fd37daccc05e0
+    path: Assets/_ROOT_ANOMALIAS_/Scenes/SCN_Final.unity
+    guid: 0a632d82ec070bd4db4bb02a72c898c6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
