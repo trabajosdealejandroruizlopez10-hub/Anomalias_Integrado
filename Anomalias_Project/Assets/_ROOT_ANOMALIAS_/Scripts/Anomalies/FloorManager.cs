@@ -14,11 +14,6 @@ public class FloorManager : MonoBehaviour
     [Header("Scenes")]
     public string victorySceneName;
 
-    [Header("Player")]
-    public Transform player;
-
-    public Transform spawnPoint;
-
     [Header("UI")]
     public TextMeshProUGUI floorText;
 
@@ -44,40 +39,9 @@ public class FloorManager : MonoBehaviour
         }
     }
 
-    public void WrongChoice()
+    public void ResetFloor()
     {
         currentFloor = 0;
-
-        Rigidbody rb =
-            player.GetComponent<Rigidbody>();
-
-        if (rb != null)
-        {
-            rb.linearVelocity =
-                Vector3.zero;
-
-            rb.angularVelocity =
-                Vector3.zero;
-        }
-
-        PlayerController controller =
-            player.GetComponent<PlayerController>();
-
-        if (controller != null)
-        {
-            controller.Teleport(
-                spawnPoint.position,
-                spawnPoint.rotation
-            );
-        }
-        else
-        {
-            player.position =
-                spawnPoint.position;
-
-            player.rotation =
-                spawnPoint.rotation;
-        }
 
         UpdateUI();
     }

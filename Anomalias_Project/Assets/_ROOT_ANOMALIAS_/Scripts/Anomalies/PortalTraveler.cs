@@ -3,57 +3,59 @@ using System.Collections;
 
 public class PortalTraveller : MonoBehaviour
 {
+    [Header("Portal")]
     public Transform destination;
 
-    private Transform player;
+    [Header("Game Logic")]
+    public bool roomHasAnomaly;
 
-    private bool playerOverlapping;
+    public bool isForwardPortal;
+
+    [Header("Wrong Portal")]
+    public bool sendsToStart;
 
     private bool canTeleport = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
-            return;
-
-        player = other.transform;
-
-        playerOverlapping = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag("Player"))
-            return;
-
-        playerOverlapping = false;
-    }
-
-    void Update()
-    {
-        if (!playerOverlapping)
-            return;
-
         if (!canTeleport)
             return;
 
-        Vector3 portalToPlayer =
-            player.position -
-            transform.position;
+        if (!other.CompareTag("Player"))
+            return;
 
-        float dot =
-            Vector3.Dot(
-                transform.forward,
-                portalToPlayer
+        bool success =
+            (
+                !roomHasAnomaly &&
+                isForwardPortal
+            )
+            ||
+            (
+                roomHasAnomaly &&
+                !isForwardPortal
             );
 
-        if (dot < 0f)
+        if (success)
         {
-            Teleport();
+            FloorManager.Instance
+                .CorrectChoice();
         }
+        else
+        {
+            FloorManager.Instance
+                .ResetFloor();
+        }
+
+        Teleport(
+            other.transform,
+            !success
+        );
     }
 
-    void Teleport()
+    void Teleport(
+        Transform player,
+        bool resetPortal
+    )
     {
         StartCoroutine(
             TeleportCooldown()
@@ -61,6 +63,25 @@ public class PortalTraveller : MonoBehaviour
 
         Rigidbody rb =
             player.GetComponent<Rigidbody>();
+
+        PlayerController controller =
+            player.GetComponent<PlayerController>();
+
+        if (resetPortal)
+        {
+            controller.Teleport(
+                destination.position,
+                destination.rotation
+            );
+
+            rb.linearVelocity =
+                Vector3.zero;
+
+            rb.angularVelocity =
+                Vector3.zero;
+
+            return;
+        }
 
         Vector3 relativePosition =
             transform.InverseTransformPoint(
@@ -101,9 +122,6 @@ public class PortalTraveller : MonoBehaviour
                 0f
             );
 
-        PlayerController controller =
-            player.GetComponent<PlayerController>();
-
         controller.Teleport(
             newPosition,
             newRotation
@@ -128,8 +146,6 @@ public class PortalTraveller : MonoBehaviour
 
         player.position +=
             destination.forward * 0.5f;
-
-        playerOverlapping = false;
     }
 
     IEnumerator TeleportCooldown()
