@@ -4,20 +4,27 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed = 6f;
 
     public float acceleration = 12f;
     public float deceleration = 14f;
 
-    public float mouseSensitivity = 0.1f;
+    [Header("Mouse")]
+    public float mouseSensitivity = 2f;
 
     public Transform cameraHolder;
 
+    [Header("Ground Check")]
     public Transform groundCheck;
+
     public float groundDistance = 0.3f;
+
     public LayerMask groundMask;
 
+    [Header("Head Bob")]
     public float headBobSpeed = 14f;
+
     public float headBobAmount = 0.05f;
 
     private Rigidbody rb;
@@ -37,7 +44,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        rb.freezeRotation = true;
+        rb.interpolation =
+            RigidbodyInterpolation.Interpolate;
+
+        rb.collisionDetectionMode =
+            CollisionDetectionMode.Continuous;
 
         cameraStartPos =
             cameraHolder.localPosition;
@@ -45,7 +56,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState =
             CursorLockMode.Locked;
 
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     void Update()
@@ -131,30 +142,16 @@ public class PlayerController : MonoBehaviour
 
     void Look()
     {
-        float mouseX =
-            lookInput.x * mouseSensitivity;
-
-        float mouseY =
-            lookInput.y * mouseSensitivity;
+        float mouseX = lookInput.x * mouseSensitivity;
+        float mouseY = lookInput.y * mouseSensitivity;
 
         xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        xRotation = Mathf.Clamp(
-            xRotation,
-            -90f,
-            90f
-        );
+        cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        cameraHolder.localRotation =
-            Quaternion.Euler(
-                xRotation,
-                0f,
-                0f
-            );
-
-        transform.Rotate(
-            Vector3.up * mouseX
-        );
+        float yRotation = transform.eulerAngles.y + mouseX;
+        rb.MoveRotation(Quaternion.Euler(0f, yRotation, 0f));
     }
 
     void HeadBob()
@@ -206,10 +203,17 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity =
             Vector3.zero;
 
+        rb.angularVelocity =
+            Vector3.zero;
+
         transform.position =
             position;
 
         transform.rotation =
-            rotation;
+            Quaternion.Euler(
+                0f,
+                rotation.eulerAngles.y,
+                0f
+            );
     }
 }

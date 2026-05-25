@@ -4,8 +4,9 @@ public class FollowCamera : MonoBehaviour
 {
     public Transform cam;
 
-    void Update()
+    void LateUpdate()
     {
-        transform.position = cam.position;
+        transform.position =
+            cam.position;
     }
 }
