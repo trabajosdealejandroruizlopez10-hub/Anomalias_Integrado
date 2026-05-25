@@ -1249,8 +1249,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1326368429384126379, guid: 69247d02029dd1e49b28c19874296837, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326368429384126379, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_Interpolate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1326368429384126379, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_CollisionDetection
@@ -1258,7 +1262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5931696535191899633, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.86
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5931696535191899633, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1266,7 +1270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5931696535191899633, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.46
+      value: 11.2
       objectReference: {fileID: 0}
     - target: {fileID: 5931696535191899633, guid: 69247d02029dd1e49b28c19874296837, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1316,8 +1320,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3778691148319107948, guid: 69247d02029dd1e49b28c19874296837, type: 3}
+    - target: {fileID: 8329115082252652630, guid: 69247d02029dd1e49b28c19874296837, type: 3}
+      propertyPath: mouseSensitivity
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
