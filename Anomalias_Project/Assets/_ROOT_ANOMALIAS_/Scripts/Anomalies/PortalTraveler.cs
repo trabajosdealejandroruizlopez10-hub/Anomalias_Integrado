@@ -3,43 +3,22 @@ using System.Collections;
 
 public class PortalTraveller : MonoBehaviour
 {
-    [Header("Portal")]
     public Transform destination;
 
-    [Header("Points")]
-    public bool isCorrectPortal;
+    private Transform player;
+
+    private bool playerOverlapping;
 
     private bool canTeleport = true;
 
-    private bool used;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (used)
-            return;
-
-        if (!canTeleport)
-            return;
-
         if (!other.CompareTag("Player"))
             return;
 
-        used = true;
+        player = other.transform;
 
-        if (isCorrectPortal)
-        {
-            FloorManager.Instance
-                .CorrectChoice();
-        }
-        else
-        {
-            FloorManager.Instance
-                .ResetFloor();
-        }
-
-        Teleport(
-            other.transform
-        );
+        playerOverlapping = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -47,10 +26,34 @@ public class PortalTraveller : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        used = false;
+        playerOverlapping = false;
     }
 
-    void Teleport(Transform player)
+    void Update()
+    {
+        if (!playerOverlapping)
+            return;
+
+        if (!canTeleport)
+            return;
+
+        Vector3 portalToPlayer =
+            player.position -
+            transform.position;
+
+        float dot =
+            Vector3.Dot(
+                transform.forward,
+                portalToPlayer
+            );
+
+        if (dot < 0f)
+        {
+            Teleport();
+        }
+    }
+
+    void Teleport()
     {
         StartCoroutine(
             TeleportCooldown()
@@ -125,6 +128,8 @@ public class PortalTraveller : MonoBehaviour
 
         player.position +=
             destination.forward * 0.5f;
+
+        playerOverlapping = false;
     }
 
     IEnumerator TeleportCooldown()

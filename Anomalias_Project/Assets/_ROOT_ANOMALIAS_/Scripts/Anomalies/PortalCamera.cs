@@ -21,22 +21,39 @@ public class PortalCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Matrix4x4 m =
-            portal.localToWorldMatrix *
-            Matrix4x4.Rotate(
-                Quaternion.Euler(
-                    0f,
-                    180f,
-                    0f
-                )
-            ) *
-            otherPortal.worldToLocalMatrix *
-            playerCamera.localToWorldMatrix;
+        Vector3 relativePosition =
+            otherPortal.InverseTransformPoint(
+                playerCamera.position
+            );
 
-        transform.SetPositionAndRotation(
-            m.GetColumn(3),
-            m.rotation
-        );
+        relativePosition =
+            Quaternion.Euler(
+                0f,
+                180f,
+                0f
+            ) * relativePosition;
+
+        transform.position =
+            portal.TransformPoint(
+                relativePosition
+            );
+
+        Quaternion relativeRotation =
+            Quaternion.Inverse(
+                otherPortal.rotation
+            ) *
+            playerCamera.rotation;
+
+        Vector3 euler =
+            relativeRotation.eulerAngles;
+
+        transform.rotation =
+            portal.rotation *
+            Quaternion.Euler(
+                euler.x,
+                euler.y + 180f,
+                0f
+            );
 
         cam.projectionMatrix =
             mainCam.projectionMatrix;

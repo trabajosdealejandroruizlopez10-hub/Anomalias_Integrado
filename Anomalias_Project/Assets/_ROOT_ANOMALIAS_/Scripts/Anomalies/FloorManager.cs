@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class FloorManager : MonoBehaviour
 {
@@ -9,10 +8,10 @@ public class FloorManager : MonoBehaviour
     [Header("Floor")]
     public int currentFloor = 0;
 
-    public int winFloor = 10;
+    [Header("Player")]
+    public Transform player;
 
-    [Header("Scenes")]
-    public string victorySceneName;
+    public Transform spawnPoint;
 
     [Header("UI")]
     public TextMeshProUGUI floorText;
@@ -32,18 +31,29 @@ public class FloorManager : MonoBehaviour
         currentFloor++;
 
         UpdateUI();
-
-        if (currentFloor >= winFloor)
-        {
-            SceneManager.LoadScene(
-                victorySceneName
-            );
-        }
     }
 
-    public void ResetFloor()
+    public void WrongChoice()
     {
         currentFloor = 0;
+
+        player.position =
+            spawnPoint.position;
+
+        player.rotation =
+            spawnPoint.rotation;
+
+        Rigidbody rb =
+            player.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity =
+                Vector3.zero;
+
+            rb.angularVelocity =
+                Vector3.zero;
+        }
 
         UpdateUI();
     }
