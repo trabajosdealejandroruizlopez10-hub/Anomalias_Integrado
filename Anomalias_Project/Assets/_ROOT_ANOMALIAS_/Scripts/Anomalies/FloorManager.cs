@@ -35,7 +35,9 @@ public class FloorManager : MonoBehaviour
 
         if (currentFloor >= winFloor)
         {
-            WinGame();
+            SceneManager.LoadScene(
+                victorySceneName
+            );
         }
     }
 
@@ -44,13 +46,6 @@ public class FloorManager : MonoBehaviour
         currentFloor = 0;
 
         UpdateUI();
-    }
-
-    void WinGame()
-    {
-        SceneManager.LoadScene(
-            victorySceneName
-        );
     }
 
     void UpdateUI()

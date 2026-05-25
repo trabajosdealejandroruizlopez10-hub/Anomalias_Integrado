@@ -6,36 +6,27 @@ public class PortalTraveller : MonoBehaviour
     [Header("Portal")]
     public Transform destination;
 
-    [Header("Game Logic")]
-    public bool roomHasAnomaly;
-
-    public bool isForwardPortal;
-
-    [Header("Wrong Portal")]
-    public bool sendsToStart;
+    [Header("Points")]
+    public bool isCorrectPortal;
 
     private bool canTeleport = true;
 
+    private bool used;
+
     private void OnTriggerEnter(Collider other)
     {
+        if (used)
+            return;
+
         if (!canTeleport)
             return;
 
         if (!other.CompareTag("Player"))
             return;
 
-        bool success =
-            (
-                !roomHasAnomaly &&
-                isForwardPortal
-            )
-            ||
-            (
-                roomHasAnomaly &&
-                !isForwardPortal
-            );
+        used = true;
 
-        if (success)
+        if (isCorrectPortal)
         {
             FloorManager.Instance
                 .CorrectChoice();
@@ -47,15 +38,19 @@ public class PortalTraveller : MonoBehaviour
         }
 
         Teleport(
-            other.transform,
-            !success
+            other.transform
         );
     }
 
-    void Teleport(
-        Transform player,
-        bool resetPortal
-    )
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
+        used = false;
+    }
+
+    void Teleport(Transform player)
     {
         StartCoroutine(
             TeleportCooldown()
@@ -63,25 +58,6 @@ public class PortalTraveller : MonoBehaviour
 
         Rigidbody rb =
             player.GetComponent<Rigidbody>();
-
-        PlayerController controller =
-            player.GetComponent<PlayerController>();
-
-        if (resetPortal)
-        {
-            controller.Teleport(
-                destination.position,
-                destination.rotation
-            );
-
-            rb.linearVelocity =
-                Vector3.zero;
-
-            rb.angularVelocity =
-                Vector3.zero;
-
-            return;
-        }
 
         Vector3 relativePosition =
             transform.InverseTransformPoint(
@@ -121,6 +97,9 @@ public class PortalTraveller : MonoBehaviour
                 180f,
                 0f
             );
+
+        PlayerController controller =
+            player.GetComponent<PlayerController>();
 
         controller.Teleport(
             newPosition,
